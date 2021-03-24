@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "roomer-web"
+  },
+  "targets": {
+    "roomer-web": {
+      "hosting": {
+        "roomer-app": [
+          "roomer-web"
+        ]
+      }
+    }
+  }
+}

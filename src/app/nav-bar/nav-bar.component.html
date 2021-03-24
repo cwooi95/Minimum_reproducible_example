@@ -1,0 +1,85 @@
+<!-- Load an icon library -->
+<!--meta content="width=device-width, initial-scale=1"-->
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="menu-toolbar">Menu</mat-toolbar>
+    <mat-nav-list class="menu-nav-list">
+      <a mat-button class="active" routerLink="/home" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="home-page">home</mat-icon>Home
+      </a><br>
+      <a mat-button class="active" routerLink="/search-buddy" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="buddies-page">search</mat-icon>Search Buddies
+      </a><br>
+      <a mat-button class="active" routerLink="/search-listings" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="contact-page">search</mat-icon>Search Rooms
+      </a><br>
+      <a mat-button class="active" *ngIf="!this.authService.LoggedInStatus" routerLink="/search-listings" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="account-page">account_circle</mat-icon>Login
+      </a>
+      <a mat-button class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/chat" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="account-page">account_circle</mat-icon>Chat
+      </a><br>
+      <a mat-button class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/user-dashboard" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="account-page">account_circle</mat-icon>My account
+      </a><br>
+      <a mat-button class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/create-profile-selection" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="account-page">account_circle</mat-icon>Create Profile
+      </a><br>
+      <a mat-button class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/post-listings" [queryParams]= "{userId: this.userId}">
+        <mat-icon class="account-page">account_circle</mat-icon>Post Listing
+      </a><br>
+      <a mat-button class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/logout" (click)=logOut()>
+        <mat-icon class="account-page">account_circle</mat-icon>Logout
+      </a><br>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="navbar">
+      <button
+        type="button"
+        class="toggle-drawer-button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="roomer-logo-div">
+        <img src="../../assets/image/roomer-logo.png" class="roomer-logo">
+        <span class="roomer"> Roomer</span>
+      </div>
+
+
+      <div class="spacer"></div>
+
+        <a mat-button class="active" routerLink="/home" [queryParams]= "{userId: this.userId}">
+          <mat-icon class="home-page">home</mat-icon>Home</a>
+        <a mat-button class="active" routerLink="/search-buddy" [queryParams]= "{userId: this.userId}">
+          <mat-icon class="buddies-page">search</mat-icon>Search Buddies</a>
+        <a mat-button class="active" routerLink="/search-listings" [queryParams]= "{userId: this.userId}">
+          <mat-icon class="contact-page">search</mat-icon>Search Rooms</a>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <mat-icon class="account-page">account_circle</mat-icon>My Account</button>
+                <div class="dropdown-content">
+                  <a class="active" *ngIf="!this.authService.LoggedInStatus" routerLink="/login">Login</a>
+                  <a class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/chat" [queryParams]= "{userId: this.userId}">Chat</a>
+                  <a class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/user-dashboard" [queryParams]= "{userId: this.userId}">My account</a>
+                  <a class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/create-profile-selection" [queryParams]= "{userId: this.userId}">Create profile</a>
+                  <a href="active" *ngIf="this.authService.LoggedInStatus" routerLink="/post-listings" [queryParams]= "{userId: this.userId}">Post listings</a>
+                  <a class="active" *ngIf="this.authService.LoggedInStatus" routerLink="/logout" (click)=logOut()>Log out</a>
+                </div>
+        </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

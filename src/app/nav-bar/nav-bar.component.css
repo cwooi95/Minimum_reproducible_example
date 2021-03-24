@@ -1,0 +1,196 @@
+.sidenav-container {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  overflow: auto;
+  position: absolute;
+  z-index: 1;
+  outline: solid white;
+}
+
+.sidenav {
+  width: 200px;
+  height: auto;
+  position: fixed;
+  background-color: black;
+  color: white;
+  z-index: 2;
+  overflow: auto;
+}
+
+.mat-toolbar {
+  background: inherit;
+  z-index: 1;
+}
+
+.toggle-drawer-button {
+  color: white;
+}
+
+.menu-toolbar {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  color: white;
+  font-size: 15px;
+  height: auto;
+}
+
+.menu-nav-list{
+  margin-top: 25px;
+  z-index: 2;
+}
+
+.menu-nav-list a:hover {
+  font-size: 18px;
+  border-bottom: 3px solid;
+  width: 180px;
+}
+
+.menu-nav-list a:visited, a:link{
+  color: white;
+  text-decoration: none;
+  outline: none;
+  /* display: block; */
+}
+
+
+/* .hidden{
+  display: none;
+} */
+
+.spacer {
+  flex: 1 1 auto;
+
+}
+
+/* mat-toolbar a {
+  display: inline-block;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+} */
+
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  overflow: auto;
+  z-index: 1;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover,
+.dropdown:hover .dropbtn{
+  font-size: 22px;
+  border-bottom: 3px solid;
+}
+
+/* Dropdown design */
+.dropdown {
+  float: left;
+  overflow: auto;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a{
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  z-index: 1;
+}
+
+.dropdown-content a:hover {
+  font-size: 22px;
+  border-bottom: 3px solid;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 1;
+}
+
+.roomer-logo-div{
+  font-size: 25px;
+}
+
+.roomer-logo{
+  height: 20px;
+}
+
+.roomer{
+  color: white;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+@media screen and (min-width: 959px){
+  .sidenav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .navbar a, .dropdown{
+    display: none;
+  }
+  
+  .roomer-logo{
+    height: 10px;
+  }
+  
+  .roomer{
+    color: white;
+    font-size: 15px;
+  }
+  
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+  .sidenav {
+    width: 200px;
+    height: auto;
+    position: fixed;
+    background-color: black;
+    color: white;
+    z-index: 3;
+    overflow: auto;
+  }
+
+}
